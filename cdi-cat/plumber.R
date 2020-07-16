@@ -3,12 +3,15 @@
 # You can run the API by clicking the 'Run API' button above.
 # George Kachergis  June 19, 2020
 
-library(plumber)
-
 source("runCAT.R")
 
 #* @apiTitle CDI-CAT
 
+#' Return "hello world"
+#' @get /hello
+function(){
+  "hello world"
+}
 
 #* Get start item index
 #* @param age_mos Child's age in months (12-36)
@@ -40,6 +43,3 @@ processCAT <- function(items, responses) {
   nextItem = findNextItem(catd)
   return(list(nextItem=nextItem, curTheta=catd$person$thetas))
 }
-
-# plumber::do_provision(mydrop)
-# Error in if (utils::packageVersion("analogsea") < package_version(analogsea_version)) { : argument is of length zero
