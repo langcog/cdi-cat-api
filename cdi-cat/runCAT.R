@@ -1,6 +1,7 @@
 # functions for running mirtCAT from python
 library(mirtCAT)
 library(tibble)
+library(jsonlite)
 
 load("eng_ws_wg_mod_2pl_nobad.Rds")
 
@@ -31,7 +32,7 @@ initializeCAT <- function(age_mos) {
 
 updateCAT <- function(catd, item, response) { # pass in all items seen and all responses, or just the new one?
   done = F
-  catd <- updateDesign(catd, items = c(item), responses = c(response)) # 0=not producing, 1=produces
+  catd <- updateDesign(catd, item, response) # 0=not producing, 1=produces
   # update theta
   catd$design@Update.thetas(catd$design, catd$person, catd$test)
   print(catd$person$thetas) # shows just single updated theta estimate

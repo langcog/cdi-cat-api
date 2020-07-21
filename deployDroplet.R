@@ -13,22 +13,23 @@ library(plumber)
 
 
 droplet <- analogsea::droplet(id=199997196)
-plumber::do_provision(droplet)
+plumber::do_provision(droplet, unstable = TRUE, example = FALSE)
 
 install_r_package(droplet, "Rcpp")
 install_r_package(droplet, "mirt")
 install_r_package(droplet, "mirtCAT")
 install_r_package(droplet, "tibble")
-install_r_package(droplet, "plumber")
+#install_r_package(droplet, "plumber")
 
-options(plumber.apiHost = "0.0.0.0")
+#options(plumber.apiHost = "0.0.0.0")
 do_deploy_api(droplet,
-  path='cdicat', localPath='cdi-cat', 
-  port=4000, forward = T, swagger = T)
+  path='cdicat', localPath='./cdi-cat', 
+  port=8003, forward = F, swagger = F)
 
 do_deploy_api(droplet,
               path='test', localPath='test', 
-              port=8001, forward = T, swagger = F)
+              port=8002, forward = F, swagger = F)
+
 
 # remove example API
 #do_remove_api(droplet, path="hello", delete = FALSE)

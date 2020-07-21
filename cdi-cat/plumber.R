@@ -23,14 +23,14 @@ get_start_item <- function(age_mos) {
 }
 
 #* Get next CAT item
-#* @param items Sequence of items presented (e.g.: "35,10")
-#* @param responses User responses (0/1) to each item (e.g., "1,0")
+#* @param items Sequence of items presented (e.g.: [35,10])
+#* @param responses User responses (0/1) to each item (e.g., [1,0])
 #* @get /nextItem
 processCAT <- function(items, responses) {
-  
-  items = unlist(lapply(strsplit(items, ","), as.integer))
-  responses = unlist(lapply(strsplit(responses, ","), as.integer))
-  print(items)
+  items = unlist(fromJSON(items))
+  responses = unlist(fromJSON(responses))
+  #items = unlist(lapply(strsplit(items, ","), as.integer))
+  #responses = unlist(lapply(strsplit(responses, ","), as.integer))
   
   # initialize CAT
   catd <- mirtCAT(df, mod_2pl, design = preferred_design, criteria = 'MI',
@@ -43,3 +43,6 @@ processCAT <- function(items, responses) {
   nextItem = findNextItem(catd)
   return(list(nextItem=nextItem, curTheta=catd$person$thetas))
 }
+
+
+#pr <- plumb('plumber.R')
