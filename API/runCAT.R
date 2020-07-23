@@ -3,9 +3,9 @@ library(mirtCAT)
 library(tibble)
 library(jsonlite)
 
-load("eng_ws_wg_mod_2pl_nobad.Rds")
+load("API/eng_ws_wg_mod_2pl_nobad.Rds")
 
-age_startits = read.csv(file="EN_production_start_items_by_age.csv")
+age_startits = read.csv(file="API/EN_production_start_items_by_age.csv")
 
 set.seed(123)
 
@@ -54,16 +54,19 @@ updateCAT <- function(catd, item, response) { # pass in all items seen and all r
 }
 
 get_CAT_summary <- function(catd) {
-  items_answered = na.omit(catd$person$items_answered)
+  its = catd$person$items_answered
+  items_answered = its[which(!is.na(its))]
   responses = catd$person$responses[items_answered]
-  end_ind = length(catd$person$thetas_history)
+  end_ind = length(catd$person$thetas_history) # has duplicate entries?
+  
+  thetas_ind = seq(1,end_ind, 2)
   
   dat = tibble(index = 1:length(items_answered),
               item_inds = items_answered,
               items = coefs_2pl$definition[items_answered],
               responses = responses,
-              thetas = catd$person$thetas_history[2:end_ind],
-              thetaSE = catd$person$thetas_SE_history[2:end_ind]) # omit starting theta (0)
+              thetas = catd$person$thetas_history[thetas_ind[-1]],
+              thetaSE = catd$person$thetas_SE_history[thetas_ind[-1]]) # omit starting theta (0)
   return(dat)
 }
 
@@ -75,7 +78,7 @@ test <- function() {
   # initialize CAT for 24-month-old
   catd = initializeCAT(24)
   nextItem = findNextItem(catd) # the start item
-  
+  print(nextItem)
   responses = rep(c(0,1), 30)
   for(i in 1:60) {
     if(!catd$design@stop_now) {

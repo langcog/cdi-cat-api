@@ -3,34 +3,33 @@
 # You can run the API by clicking the 'Run API' button above.
 # George Kachergis  June 19, 2020
 
-source("runCAT.R")
+source("API/runCAT.R")
 
 #* @apiTitle CDI-CAT
 
 #' Return "hello world"
 #' @get /hello
 function(){
-  "hello world"
+  "Hello from CDI-CAT API!"
 }
 
-#* Get start item index
+#* Get start item index and definition
 #* @param age_mos Child's age in months (12-36)
 #* @get /startItem
 get_start_item <- function(age_mos) {
   if(age_mos<12 | age_mos>36) start_it = 'MI' # or indicate out of age range
-  start_it = subset(age_startits, age==age_mos)$index 
-  return(start_it)
+  start_it = subset(age_startits, age==age_mos)
+  return(list(index = start_it$index,
+              definition = start_it$definition))
 }
 
 #* Get next CAT item
-#* @param items Sequence of items presented (e.g.: [35,10])
-#* @param responses User responses (0/1) to each item (e.g., [1,0])
+#* @param items Sequence of item IDs presented so far to a user (e.g.: [35,10])
+#* @param responses User's responses (0/1) to each item (e.g., [1,0])
 #* @get /nextItem
 processCAT <- function(items, responses) {
   items = unlist(fromJSON(items))
   responses = unlist(fromJSON(responses))
-  #items = unlist(lapply(strsplit(items, ","), as.integer))
-  #responses = unlist(lapply(strsplit(responses, ","), as.integer))
   
   # initialize CAT
   catd <- mirtCAT(df, mod_2pl, design = preferred_design, criteria = 'MI',
@@ -41,8 +40,18 @@ processCAT <- function(items, responses) {
   }
   print(catd$person$thetas_history)
   nextItem = findNextItem(catd)
-  return(list(nextItem=nextItem, curTheta=catd$person$thetas))
+  return(list(itemIndex=nextItem, 
+              itemDefinition=questions[nextItem], 
+              curTheta=catd$person$thetas))
 }
 
 
-#pr <- plumb('plumber.R')
+#* Get item definition
+#* @param itemID Given numeric ID (1-679) returns the item definition (e.g., )
+#* @get /itemDefinition
+get_item_definition <- function(itemID) {
+  itemID = as.numeric(itemID)
+  if(itemID>length(questions) | itemID<1)
+    return(paste0("Error: itemID out of range: ",itemID))
+  return(questions[itemID])
+}
