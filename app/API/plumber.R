@@ -55,3 +55,18 @@ get_item_definition <- function(itemID) {
     return(paste0("Error: itemID out of range: ",itemID))
   return(questions[itemID])
 }
+
+#* Get item definition
+#* @param items Given list of numeric ID (1-679) returns the item definition (e.g., [1,2])
+#* @get /itemDefinitions
+get_item_definitions <- function(items) {
+  items = unlist(fromJSON(items))
+  defns <- length(items)
+  for(i in 1:length(items)) {
+    itemID = items[i]
+    if(itemID>length(questions) | itemID<1)
+      return(paste0("Error: itemID out of range: ",itemID))
+    defns[i] = questions[itemID]
+  }
+  return(defns)
+}
