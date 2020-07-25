@@ -12,6 +12,8 @@ set.seed(123)
 
 choices <- matrix(c(0,1), nrow(coefs_2pl), 2, byrow = TRUE)
 questions <- coefs_2pl$definition
+difficulties <- coefs_2pl$d
+colnames(coefs_2pl)
 df <- data.frame(Question=questions, 
                  Option = choices, 
                  Type = 'radio', stringsAsFactors = FALSE)

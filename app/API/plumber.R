@@ -10,6 +10,7 @@ source("API/runCAT.R")
 #' Return "hello world"
 #' @get /hello
 function(){
+  # return(colnames(coefs_2pl))
   "Hello from CDI-CAT API!"
 }
 
@@ -72,3 +73,34 @@ get_item_definitions <- function(items) {
   }
   return(defns)
 }
+
+#* Get easiest word
+#* @param items Given list of numeric ID (1-679) returns the id with the lowest difficulty
+#* @get /easiestWord
+get_easiest_word <- function(items) {
+  items = unlist(fromJSON(items))
+  diffs <- length(items)
+  for(i in 1:length(items)) {
+    itemID = items[i]
+    if(itemID>length(questions) | itemID<1)
+      return(paste0("Error: itemID out of range: ",itemID))
+    diffs[i] = difficulties[itemID]
+  }
+  return(items[which.min(diffs)])
+}
+
+#* Get hardest word
+#* @param items Given list of numeric ID (1-679) returns the id with the highest difficulty
+#* @get /hardestWord
+get_hardest_word <- function(items) {
+  items = unlist(fromJSON(items))
+  diffs <- length(items)
+  for(i in 1:length(items)) {
+    itemID = items[i]
+    if(itemID>length(questions) | itemID<1)
+      return(paste0("Error: itemID out of range: ",itemID))
+    diffs[i] = difficulties[itemID]
+  }
+  return(items[which.max(diffs)])
+}
+
