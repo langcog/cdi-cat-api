@@ -76,6 +76,7 @@ get_item_definitions <- function(items) {
 
 #* Get easiest word
 #* @param items Given list of numeric ID (1-679) returns the id with the lowest difficulty
+#* @serializer unboxedJSON
 #* @get /easiestWord
 get_easiest_word <- function(items) {
   items = unlist(fromJSON(items))
@@ -91,6 +92,7 @@ get_easiest_word <- function(items) {
 
 #* Get hardest word
 #* @param items Given list of numeric ID (1-679) returns the id with the highest difficulty
+#* @serializer unboxedJSON
 #* @get /hardestWord
 get_hardest_word <- function(items) {
   items = unlist(fromJSON(items))
