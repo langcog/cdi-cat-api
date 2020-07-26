@@ -88,7 +88,8 @@ get_easiest_word <- function(items) {
       return(paste0("Error: itemID out of range: ",itemID))
     diffs[i] = difficulties[itemID]
   }
-  return(items[which.min(diffs)])
+  itemID = index=items[which.min(diffs)]
+  return(list(index=itemID, definition=questions[itemID]))
 }
 
 #* Get hardest word
