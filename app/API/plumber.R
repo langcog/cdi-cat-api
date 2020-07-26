@@ -41,6 +41,9 @@ processCAT <- function(items, responses) {
   for(i in 1:length(items)) {
     catd <- updateCAT(catd, items[i], responses[i])
   }
+  if (catd$design@stop_now == T) {
+    return("stop")
+  }
   print(catd$person$thetas_history)
   nextItem = findNextItem(catd)
   return(list(index=nextItem, 
