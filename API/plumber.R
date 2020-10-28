@@ -47,7 +47,7 @@ processCAT <- function(items, responses) {
 
 
 #* Get item definition
-#* @param itemID Given numeric ID (1-679) returns the item definition (e.g., )
+#* @param itemID Given numeric ID (1-679) returns the item definition (e.g., 35 = 'ball')
 #* @get /itemDefinition
 get_item_definition <- function(itemID) {
   itemID = as.numeric(itemID)

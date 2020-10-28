@@ -1,0 +1,681 @@
+num_item_id,definition,lexical_class,category,old_definition
+1,baa baa,other,sounds,baa baa
+2,choo choo,other,sounds,choo choo
+3,cockadoodledoo,other,sounds,cockadoodledoo
+4,grrr,other,sounds,grrr
+5,meow,other,sounds,meow
+6,moo,other,sounds,moo
+7,ouch,other,sounds,ouch
+8,quack quack,other,sounds,quack quack
+9,uh oh,other,sounds,uh oh
+10,vroom,other,sounds,vroom
+11,woof woof,other,sounds,woof woof
+12,yum yum,other,sounds,yum yum
+13,alligator,nouns,animals,alligator
+14,animal,nouns,animals,animal
+15,ant,nouns,animals,ant
+16,bear,nouns,animals,bear
+17,bee,nouns,animals,bee
+18,bird,nouns,animals,bird
+19,bug (animal),nouns,animals,bug
+20,bunny,nouns,animals,bunny
+21,butterfly,nouns,animals,butterfly
+22,cat,nouns,animals,cat
+23,chicken (animal),nouns,animals,chicken (animal)
+24,cow,nouns,animals,cow
+25,deer,nouns,animals,deer
+26,dog,nouns,animals,dog
+27,donkey,nouns,animals,donkey
+28,duck,nouns,animals,duck
+29,elephant,nouns,animals,elephant
+30,fish (animal),nouns,animals,fish (animal)
+31,frog,nouns,animals,frog
+32,giraffe,nouns,animals,giraffe
+33,goose,nouns,animals,goose
+34,hen,nouns,animals,hen
+35,horse,nouns,animals,horse
+36,kitty,nouns,animals,kitty
+37,lamb,nouns,animals,lamb
+38,lion,nouns,animals,lion
+39,monkey,nouns,animals,monkey
+40,moose,nouns,animals,moose
+41,mouse,nouns,animals,mouse
+42,owl,nouns,animals,owl
+43,penguin,nouns,animals,penguin
+44,pig,nouns,animals,pig
+45,pony,nouns,animals,pony
+46,puppy,nouns,animals,puppy
+47,rooster,nouns,animals,rooster
+48,sheep,nouns,animals,sheep
+49,squirrel,nouns,animals,squirrel
+50,teddybear,nouns,animals,teddybear
+51,tiger,nouns,animals,tiger
+52,turkey,nouns,animals,turkey
+53,turtle,nouns,animals,turtle
+54,wolf,nouns,animals,wolf
+55,zebra,nouns,animals,zebra
+56,airplane,nouns,vehicles,airplane
+57,bicycle,nouns,vehicles,bicycle
+58,boat,nouns,vehicles,boat
+59,bus,nouns,vehicles,bus
+60,car,nouns,vehicles,car
+61,firetruck,nouns,vehicles,firetruck
+62,helicopter,nouns,vehicles,helicopter
+63,motorcycle,nouns,vehicles,motorcycle
+64,sled,nouns,vehicles,sled
+65,stroller,nouns,vehicles,stroller
+66,tractor,nouns,vehicles,tractor
+67,train,nouns,vehicles,train
+68,tricycle,nouns,vehicles,tricycle
+69,truck,nouns,vehicles,truck
+70,ball,nouns,toys,ball
+71,balloon,nouns,toys,balloon
+72,bat (toy),nouns,toys,bat
+73,block,nouns,toys,block
+74,book,nouns,toys,book
+75,bubbles,nouns,toys,bubbles
+76,chalk,nouns,toys,chalk
+77,crayon,nouns,toys,crayon
+78,doll,nouns,toys,doll
+79,game,nouns,toys,game
+80,glue,nouns,toys,glue
+81,pen,nouns,toys,pen
+82,pencil,nouns,toys,pencil
+83,play dough,nouns,toys,play dough
+84,present (gift),nouns,toys,present
+85,puzzle,nouns,toys,puzzle
+86,story,nouns,toys,story
+87,toy (object),nouns,toys,toy (object)
+88,apple,nouns,food_drink,apple
+89,applesauce,nouns,food_drink,applesauce
+90,banana,nouns,food_drink,banana
+91,beans,nouns,food_drink,beans
+92,bread,nouns,food_drink,bread
+93,butter,nouns,food_drink,butter
+94,cake,nouns,food_drink,cake
+95,candy,nouns,food_drink,candy
+96,carrots,nouns,food_drink,carrots
+97,cereal,nouns,food_drink,cereal
+98,cheerios,nouns,food_drink,cheerios
+99,cheese,nouns,food_drink,cheese
+100,chicken (food),nouns,food_drink,chicken (food)
+101,chocolate,nouns,food_drink,chocolate
+102,coffee,nouns,food_drink,coffee
+103,coke,nouns,food_drink,coke
+104,cookie,nouns,food_drink,cookie
+105,corn,nouns,food_drink,corn
+106,cracker,nouns,food_drink,cracker
+107,donut,nouns,food_drink,donut
+108,drink (beverage),nouns,food_drink,drink (beverage)
+109,egg,nouns,food_drink,egg
+110,fish (food),nouns,food_drink,fish (food)
+111,food,nouns,food_drink,food
+112,french fries,nouns,food_drink,french fries
+113,grapes,nouns,food_drink,grapes
+114,green beans,nouns,food_drink,green beans
+115,gum,nouns,food_drink,gum
+116,hamburger,nouns,food_drink,hamburger
+117,ice,nouns,food_drink,ice
+118,ice cream,nouns,food_drink,ice cream
+119,jello,nouns,food_drink,jello
+120,jelly,nouns,food_drink,jelly
+121,juice,nouns,food_drink,juice
+122,lollipop,nouns,food_drink,lollipop
+123,meat,nouns,food_drink,meat
+124,melon,nouns,food_drink,melon
+125,milk,nouns,food_drink,milk
+126,muffin,nouns,food_drink,muffin
+127,noodles,nouns,food_drink,noodles
+128,nuts,nouns,food_drink,nuts
+129,orange (food),nouns,food_drink,orange (food)
+130,pancake,nouns,food_drink,pancake
+131,peas,nouns,food_drink,peas
+132,peanut butter,nouns,food_drink,peanut butter
+133,pickle,nouns,food_drink,pickle
+134,pizza,nouns,food_drink,pizza
+135,popcorn,nouns,food_drink,popcorn
+136,popsicle,nouns,food_drink,popsicle
+137,potato chip,nouns,food_drink,potato chip
+138,potato,nouns,food_drink,potato
+139,pretzel,nouns,food_drink,pretzel
+140,pudding,nouns,food_drink,pudding
+141,pumpkin,nouns,food_drink,pumpkin
+142,raisin,nouns,food_drink,raisin
+143,salt,nouns,food_drink,salt
+144,sandwich,nouns,food_drink,sandwich
+145,sauce,nouns,food_drink,sauce
+146,soda/pop,nouns,food_drink,soda/pop
+147,soup,nouns,food_drink,soup
+148,spaghetti,nouns,food_drink,spaghetti
+149,strawberry,nouns,food_drink,strawberry
+150,toast,nouns,food_drink,toast
+151,tuna,nouns,food_drink,tuna
+152,vanilla,nouns,food_drink,vanilla
+153,vitamins,nouns,food_drink,vitamins
+154,water (beverage),nouns,food_drink,water (beverage)
+155,yogurt,nouns,food_drink,yogurt
+156,beads,nouns,clothing,beads
+157,belt (clothing),nouns,clothing,belt
+158,bib,nouns,clothing,bib
+159,boots,nouns,clothing,boots
+160,button,nouns,clothing,button
+161,coat,nouns,clothing,coat
+162,diaper (object),nouns,clothing,diaper
+163,dress (object),nouns,clothing,dress (object)
+164,gloves,nouns,clothing,gloves
+165,hat,nouns,clothing,hat
+166,jacket,nouns,clothing,jacket
+167,jeans,nouns,clothing,jeans
+168,mittens,nouns,clothing,mittens
+169,necklace,nouns,clothing,necklace
+170,pajamas,nouns,clothing,pajamas
+171,pants,nouns,clothing,pants
+172,scarf,nouns,clothing,scarf
+173,shirt,nouns,clothing,shirt
+174,shoe,nouns,clothing,shoe
+175,shorts,nouns,clothing,shorts
+176,slipper,nouns,clothing,slipper
+177,sneaker,nouns,clothing,sneaker
+178,snowsuit,nouns,clothing,snowsuit
+179,sock,nouns,clothing,sock
+180,sweater,nouns,clothing,sweater
+181,tights,nouns,clothing,tights
+182,underpants,nouns,clothing,underpants
+183,zipper,nouns,clothing,zipper
+184,ankle,nouns,body_parts,ankle
+185,arm,nouns,body_parts,arm
+186,belly button,nouns,body_parts,belly button
+187,buttocks/bottom*,nouns,body_parts,buttocks/bottom*
+188,cheek,nouns,body_parts,cheek
+189,chin,nouns,body_parts,chin
+190,ear,nouns,body_parts,ear
+191,eye,nouns,body_parts,eye
+192,face,nouns,body_parts,face
+193,finger,nouns,body_parts,finger
+194,foot,nouns,body_parts,foot
+195,hair,nouns,body_parts,hair
+196,hand,nouns,body_parts,hand
+197,head,nouns,body_parts,head
+198,knee,nouns,body_parts,knee
+199,leg,nouns,body_parts,leg
+200,lips,nouns,body_parts,lips
+201,mouth,nouns,body_parts,mouth
+202,nose,nouns,body_parts,nose
+203,owie/boo boo,nouns,body_parts,owie/boo boo
+204,penis*,nouns,body_parts,penis*
+205,shoulder,nouns,body_parts,shoulder
+206,toe,nouns,body_parts,toe
+207,tongue,nouns,body_parts,tongue
+208,tooth,nouns,body_parts,tooth
+209,tummy,nouns,body_parts,tummy
+210,vagina*,nouns,body_parts,vagina*
+211,basket,nouns,household,basket
+212,blanket,nouns,household,blanket
+213,bottle,nouns,household,bottle
+214,bowl,nouns,household,bowl
+215,box,nouns,household,box
+216,broom,nouns,household,broom
+217,brush (object),nouns,household,brush
+218,bucket,nouns,household,bucket
+219,camera,nouns,household,camera
+220,can (object),nouns,household,can (object)
+221,clock,nouns,household,clock
+222,comb (object),nouns,household,comb
+223,cup,nouns,household,cup
+224,dish,nouns,household,dish
+225,fork,nouns,household,fork
+226,garbage,nouns,household,garbage
+227,glass,nouns,household,glass
+228,glasses,nouns,household,glasses
+229,hammer (object),nouns,household,hammer
+230,jar,nouns,household,jar
+231,keys,nouns,household,keys
+232,knife,nouns,household,knife
+233,lamp,nouns,household,lamp
+234,light (object),nouns,household,light
+235,medicine,nouns,household,medicine
+236,money,nouns,household,money
+237,mop (object),nouns,household,mop
+238,nail (object),nouns,household,nail
+239,napkin,nouns,household,napkin
+240,paper,nouns,household,paper
+241,penny,nouns,household,penny
+242,picture,nouns,household,picture
+243,pillow,nouns,household,pillow
+244,plant (object),nouns,household,plant
+245,plate,nouns,household,plate
+246,purse,nouns,household,purse
+247,radio,nouns,household,radio
+248,scissors,nouns,household,scissors
+249,soap,nouns,household,soap
+250,spoon (object),nouns,household,spoon
+251,tape,nouns,household,tape
+252,telephone,nouns,household,telephone
+253,tissue/kleenex,nouns,household,tissue/kleenex
+254,toothbrush,nouns,household,toothbrush
+255,towel,nouns,household,towel
+256,trash,nouns,household,trash
+257,tray,nouns,household,tray
+258,vacuum,nouns,household,vacuum
+259,walker,nouns,household,walker
+260,watch (object),nouns,household,watch (object)
+261,basement,nouns,furniture_rooms,basement
+262,bathroom,nouns,furniture_rooms,bathroom
+263,bathtub,nouns,furniture_rooms,bathtub
+264,bed,nouns,furniture_rooms,bed
+265,bedroom,nouns,furniture_rooms,bedroom
+266,bench,nouns,furniture_rooms,bench
+267,chair,nouns,furniture_rooms,chair
+268,closet,nouns,furniture_rooms,closet
+269,couch,nouns,furniture_rooms,couch
+270,crib,nouns,furniture_rooms,crib
+271,door,nouns,furniture_rooms,door
+272,drawer,nouns,furniture_rooms,drawer
+273,dryer,nouns,furniture_rooms,dryer
+274,garage,nouns,furniture_rooms,garage
+275,high chair,nouns,furniture_rooms,high chair
+276,kitchen,nouns,furniture_rooms,kitchen
+277,living room,nouns,furniture_rooms,living room
+278,oven,nouns,furniture_rooms,oven
+279,play pen,nouns,furniture_rooms,play pen
+280,porch,nouns,furniture_rooms,porch
+281,potty,nouns,furniture_rooms,potty
+282,rocking chair,nouns,furniture_rooms,rocking chair
+283,refrigerator,nouns,furniture_rooms,refrigerator
+284,room,nouns,furniture_rooms,room
+285,shower (place),nouns,furniture_rooms,shower
+286,sink (object),nouns,furniture_rooms,sink
+287,sofa,nouns,furniture_rooms,sofa
+288,stairs,nouns,furniture_rooms,stairs
+289,stove,nouns,furniture_rooms,stove
+290,table,nouns,furniture_rooms,table
+291,TV,nouns,furniture_rooms,TV
+292,window,nouns,furniture_rooms,window
+293,washing machine,nouns,furniture_rooms,washing machine
+294,backyard,nouns,outside,backyard
+295,cloud,nouns,outside,cloud
+296,flag (object),nouns,outside,flag
+297,flower,nouns,outside,flower
+298,garden,nouns,outside,garden
+299,grass,nouns,outside,grass
+300,hose,nouns,outside,hose
+301,ladder,nouns,outside,ladder
+302,lawn mower,nouns,outside,lawn mower
+303,moon,nouns,outside,moon
+304,pool,nouns,outside,pool
+305,rain,nouns,outside,rain
+306,rock (object),nouns,outside,rock
+307,roof,nouns,outside,roof
+308,sandbox,nouns,outside,sandbox
+309,shovel,nouns,outside,shovel
+310,sidewalk,nouns,outside,sidewalk
+311,sky,nouns,outside,sky
+312,slide (object),nouns,outside,slide (object)
+313,snow,nouns,outside,snow
+314,snowman,nouns,outside,snowman
+315,sprinkler,nouns,outside,sprinkler
+316,star,nouns,outside,star
+317,stick,nouns,outside,stick
+318,stone,nouns,outside,stone
+319,street,nouns,outside,street
+320,sun,nouns,outside,sun
+321,swing (object),nouns,outside,swing (object)
+322,tree,nouns,outside,tree
+323,water (not beverage),nouns,outside,water (not beverage)
+324,wind (object),nouns,outside,wind
+325,beach,other,places,beach
+326,camping,other,places,camping
+327,church*,other,places,church*
+328,circus,other,places,circus
+329,country,other,places,country
+330,downtown,other,places,downtown
+331,farm,other,places,farm
+332,gas station,other,places,gas station
+333,home,other,places,home
+334,house,other,places,house
+335,movie,other,places,movie
+336,outside,other,places,outside
+337,park,other,places,park
+338,party,other,places,party
+339,picnic,other,places,picnic
+340,playground,other,places,playground
+341,school,other,places,school
+342,store (place),other,places,store
+343,woods,other,places,woods
+344,work (place),other,places,work (place)
+345,yard,other,places,yard
+346,zoo,other,places,zoo
+347,aunt,other,people,aunt
+348,baby,other,people,baby
+349,babysitter,other,people,babysitter
+350,babysitter's name,other,people,babysitter's name
+351,boy,other,people,boy
+352,brother,other,people,brother
+353,child,other,people,child
+354,clown,other,people,clown
+355,cowboy,other,people,cowboy
+356,daddy*,other,people,daddy*
+357,doctor,other,people,doctor
+358,fireman,other,people,fireman
+359,friend,other,people,friend
+360,girl,other,people,girl
+361,grandma*,other,people,grandma*
+362,grandpa*,other,people,grandpa*
+363,lady,other,people,lady
+364,mailman,other,people,mailman
+365,man,other,people,man
+366,mommy*,other,people,mommy*
+367,nurse,other,people,nurse
+368,child's own name,other,people,child's own name
+369,people,other,people,people
+370,person,other,people,person
+371,pet's name,other,people,pet's name
+372,police,other,people,police
+373,sister,other,people,sister
+374,teacher,other,people,teacher
+375,uncle,other,people,uncle
+376,bath,other,games_routines,bath
+377,breakfast,other,games_routines,breakfast
+378,bye,other,games_routines,bye
+379,call (on phone),other,games_routines,call (on phone)
+380,dinner,other,games_routines,dinner
+381,give me five!,other,games_routines,give me five!
+382,gonna get you!,other,games_routines,gonna get you!
+383,go potty,other,games_routines,go potty
+384,hello,other,games_routines,hello
+385,hi,other,games_routines,hi
+386,lunch,other,games_routines,lunch
+387,nap,other,games_routines,nap
+388,night night,other,games_routines,night night
+389,no,other,games_routines,no
+390,pattycake,other,games_routines,pattycake
+391,peekaboo,other,games_routines,peekaboo
+392,please,other,games_routines,please
+393,shh/shush/hush,other,games_routines,shh/shush/hush
+394,shopping,other,games_routines,shopping
+395,snack,other,games_routines,snack
+396,so big!,other,games_routines,so big!
+397,thank you,other,games_routines,thank you
+398,this little piggy,other,games_routines,this little piggy
+399,turn around,other,games_routines,turn around
+400,yes,other,games_routines,yes
+401,bite (action),verbs,action_words,bite
+402,blow,verbs,action_words,blow
+403,break,verbs,action_words,break
+404,bring,verbs,action_words,bring
+405,build,verbs,action_words,build
+406,bump,verbs,action_words,bump
+407,buy,verbs,action_words,buy
+408,carry,verbs,action_words,carry
+409,catch,verbs,action_words,catch
+410,chase,verbs,action_words,chase
+411,clap,verbs,action_words,clap
+412,clean (action),verbs,action_words,clean (action)
+413,climb,verbs,action_words,climb
+414,close (action),verbs,action_words,close
+415,cook (action),verbs,action_words,cook
+416,cover (action),verbs,action_words,cover
+417,cry,verbs,action_words,cry
+418,cut (action),verbs,action_words,cut
+419,dance (action),verbs,action_words,dance
+420,draw,verbs,action_words,draw
+421,drink (action),verbs,action_words,drink (action)
+422,drive,verbs,action_words,drive
+423,drop (action),verbs,action_words,drop
+424,dry (action),verbs,action_words,dry (action)
+425,dump,verbs,action_words,dump
+426,eat,verbs,action_words,eat
+427,fall (action),verbs,action_words,fall
+428,feed,verbs,action_words,feed
+429,find,verbs,action_words,find
+430,finish,verbs,action_words,finish
+431,fit (action),verbs,action_words,fit
+432,fix,verbs,action_words,fix
+433,get,verbs,action_words,get
+434,give,verbs,action_words,give
+435,go,verbs,action_words,go
+436,hate,verbs,action_words,hate
+437,have,verbs,action_words,have
+438,hear,verbs,action_words,hear
+439,help (action),verbs,action_words,help
+440,hide,verbs,action_words,hide
+441,hit,verbs,action_words,hit
+442,hold,verbs,action_words,hold
+443,hug (action),verbs,action_words,hug
+444,hurry,verbs,action_words,hurry
+445,jump (action),verbs,action_words,jump
+446,kick,verbs,action_words,kick
+447,kiss (action),verbs,action_words,kiss
+448,knock,verbs,action_words,knock
+449,lick,verbs,action_words,lick
+450,like,verbs,action_words,like
+451,listen,verbs,action_words,listen
+452,look (action),verbs,action_words,look
+453,love,verbs,action_words,love
+454,make,verbs,action_words,make
+455,open,verbs,action_words,open
+456,paint,verbs,action_words,paint
+457,pick,verbs,action_words,pick
+458,play,verbs,action_words,play
+459,pour,verbs,action_words,pour
+460,pretend,verbs,action_words,pretend
+461,pull,verbs,action_words,pull
+462,push,verbs,action_words,push
+463,put,verbs,action_words,put
+464,read,verbs,action_words,read
+465,ride,verbs,action_words,ride
+466,rip,verbs,action_words,rip
+467,run,verbs,action_words,run
+468,say,verbs,action_words,say
+469,see,verbs,action_words,see
+470,shake,verbs,action_words,shake
+471,share,verbs,action_words,share
+472,show (action),verbs,action_words,show
+473,sing,verbs,action_words,sing
+474,sit,verbs,action_words,sit
+475,skate,verbs,action_words,skate
+476,sleep,verbs,action_words,sleep
+477,slide (action),verbs,action_words,slide (action)
+478,smile,verbs,action_words,smile
+479,spill,verbs,action_words,spill
+480,splash,verbs,action_words,splash
+481,stand,verbs,action_words,stand
+482,stay,verbs,action_words,stay
+483,stop,verbs,action_words,stop
+484,sweep,verbs,action_words,sweep
+485,swim,verbs,action_words,swim
+486,swing (action),verbs,action_words,swing (action)
+487,take,verbs,action_words,take
+488,talk,verbs,action_words,talk
+489,taste,verbs,action_words,taste
+490,tear (action),verbs,action_words,tear
+491,think,verbs,action_words,think
+492,throw,verbs,action_words,throw
+493,tickle,verbs,action_words,tickle
+494,touch,verbs,action_words,touch
+495,wait,verbs,action_words,wait
+496,wake,verbs,action_words,wake
+497,walk,verbs,action_words,walk
+498,wash (action),verbs,action_words,wash
+499,watch (action),verbs,action_words,watch (action)
+500,wipe,verbs,action_words,wipe
+501,wish (action),verbs,action_words,wish
+502,work (action),verbs,action_words,work (action)
+503,write,verbs,action_words,write
+504,all gone,adjectives,descriptive_words,all gone
+505,asleep,adjectives,descriptive_words,asleep
+506,awake,adjectives,descriptive_words,awake
+507,bad,adjectives,descriptive_words,bad
+508,better,adjectives,descriptive_words,better
+509,big,adjectives,descriptive_words,big
+510,black,adjectives,descriptive_words,black
+511,blue,adjectives,descriptive_words,blue
+512,broken,adjectives,descriptive_words,broken
+513,brown,adjectives,descriptive_words,brown
+514,careful,adjectives,descriptive_words,careful
+515,clean (description),adjectives,descriptive_words,clean (description)
+516,cold,adjectives,descriptive_words,cold
+517,cute,adjectives,descriptive_words,cute
+518,dark,adjectives,descriptive_words,dark
+519,dirty,adjectives,descriptive_words,dirty
+520,dry (description),adjectives,descriptive_words,dry (description)
+521,empty (description),adjectives,descriptive_words,empty
+522,fast,adjectives,descriptive_words,fast
+523,fine,adjectives,descriptive_words,fine
+524,first,adjectives,descriptive_words,first
+525,full,adjectives,descriptive_words,full
+526,gentle,adjectives,descriptive_words,gentle
+527,good,adjectives,descriptive_words,good
+528,green,adjectives,descriptive_words,green
+529,happy,adjectives,descriptive_words,happy
+530,hard,adjectives,descriptive_words,hard
+531,heavy,adjectives,descriptive_words,heavy
+532,high,adjectives,descriptive_words,high
+533,hot,adjectives,descriptive_words,hot
+534,hungry,adjectives,descriptive_words,hungry
+535,hurt,adjectives,descriptive_words,hurt
+536,last,adjectives,descriptive_words,last
+537,little (description),adjectives,descriptive_words,little (description)
+538,long,adjectives,descriptive_words,long
+539,loud,adjectives,descriptive_words,loud
+540,mad,adjectives,descriptive_words,mad
+541,naughty,adjectives,descriptive_words,naughty
+542,new,adjectives,descriptive_words,new
+543,nice,adjectives,descriptive_words,nice
+544,noisy,adjectives,descriptive_words,noisy
+545,old,adjectives,descriptive_words,old
+546,orange (description),adjectives,descriptive_words,orange (description)
+547,poor,adjectives,descriptive_words,poor
+548,pretty,adjectives,descriptive_words,pretty
+549,quiet,adjectives,descriptive_words,quiet
+550,red,adjectives,descriptive_words,red
+551,sad,adjectives,descriptive_words,sad
+552,scared,adjectives,descriptive_words,scared
+553,sick,adjectives,descriptive_words,sick
+554,sleepy,adjectives,descriptive_words,sleepy
+555,slow,adjectives,descriptive_words,slow
+556,soft,adjectives,descriptive_words,soft
+557,sticky,adjectives,descriptive_words,sticky
+558,stuck,adjectives,descriptive_words,stuck
+559,thirsty,adjectives,descriptive_words,thirsty
+560,tiny,adjectives,descriptive_words,tiny
+561,tired,adjectives,descriptive_words,tired
+562,wet (description),adjectives,descriptive_words,wet
+563,white,adjectives,descriptive_words,white
+564,windy,adjectives,descriptive_words,windy
+565,yellow,adjectives,descriptive_words,yellow
+566,yucky,adjectives,descriptive_words,yucky
+567,after,other,time_words,after
+568,before,other,time_words,before
+569,day,other,time_words,day
+570,later,other,time_words,later
+571,morning,other,time_words,morning
+572,night,other,time_words,night
+573,now,other,time_words,now
+574,time,other,time_words,time
+575,today,other,time_words,today
+576,tomorrow,other,time_words,tomorrow
+577,tonight,other,time_words,tonight
+578,yesterday,other,time_words,yesterday
+579,he,function_words,pronouns,he
+580,her,function_words,pronouns,her
+581,hers,function_words,pronouns,hers
+582,him,function_words,pronouns,him
+583,his,function_words,pronouns,his
+584,I,function_words,pronouns,I
+585,it,function_words,pronouns,it
+586,me,function_words,pronouns,me
+587,mine,function_words,pronouns,mine
+588,my,function_words,pronouns,my
+589,myself,function_words,pronouns,myself
+590,our,function_words,pronouns,our
+591,she,function_words,pronouns,she
+592,that,function_words,pronouns,that
+593,their,function_words,pronouns,their
+594,them,function_words,pronouns,them
+595,these,function_words,pronouns,these
+596,they,function_words,pronouns,they
+597,this,function_words,pronouns,this
+598,those,function_words,pronouns,those
+599,us,function_words,pronouns,us
+600,we,function_words,pronouns,we
+601,you,function_words,pronouns,you
+602,your,function_words,pronouns,your
+603,yourself,function_words,pronouns,yourself
+604,how,function_words,question_words,how
+605,what,function_words,question_words,what
+606,when,function_words,question_words,when
+607,where,function_words,question_words,where
+608,which,function_words,question_words,which
+609,who,function_words,question_words,who
+610,why,function_words,question_words,why
+611,about,function_words,locations,about
+612,above,function_words,locations,above
+613,around,function_words,locations,around
+614,at,function_words,locations,at
+615,away,function_words,locations,away
+616,back (location),function_words,locations,back
+617,behind,function_words,locations,behind
+618,beside,function_words,locations,beside
+619,by,function_words,locations,by
+620,down,function_words,locations,down
+621,for,function_words,locations,for
+622,here,function_words,locations,here
+623,inside/in,function_words,locations,inside/in
+624,into,function_words,locations,into
+625,next to,function_words,locations,next to
+626,of,function_words,locations,of
+627,off,function_words,locations,off
+628,on,function_words,locations,on
+629,on top of,function_words,locations,on top of
+630,out,function_words,locations,out
+631,over,function_words,locations,over
+632,there,function_words,locations,there
+633,to,function_words,locations,to
+634,under,function_words,locations,under
+635,up,function_words,locations,up
+636,with,function_words,locations,with
+637,a,function_words,quantifiers,a
+638,all,function_words,quantifiers,all
+639,a lot,function_words,quantifiers,a lot
+640,an,function_words,quantifiers,an
+641,another,function_words,quantifiers,another
+642,any,function_words,quantifiers,any
+643,each,function_words,quantifiers,each
+644,every,function_words,quantifiers,every
+645,more,function_words,quantifiers,more
+646,much,function_words,quantifiers,much
+647,none,function_words,quantifiers,none
+648,not,function_words,quantifiers,not
+649,other,function_words,quantifiers,other
+650,same,function_words,quantifiers,same
+651,some,function_words,quantifiers,some
+652,the,function_words,quantifiers,the
+653,too,function_words,quantifiers,too
+654,am,function_words,helping_verbs,am
+655,are,function_words,helping_verbs,are
+656,be,function_words,helping_verbs,be
+657,can (auxiliary),function_words,helping_verbs,can (auxiliary)
+658,could,function_words,helping_verbs,could
+659,did/did ya,function_words,helping_verbs,did/did ya
+660,do,function_words,helping_verbs,do
+661,does,function_words,helping_verbs,does
+662,don't,function_words,helping_verbs,don't
+663,gonna/going to,function_words,helping_verbs,gonna/going to
+664,gotta/got to,function_words,helping_verbs,gotta/got to
+665,hafta/have to,function_words,helping_verbs,hafta/have to
+666,is,function_words,helping_verbs,is
+667,lemme/let me,function_words,helping_verbs,lemme/let me
+668,need/need to,function_words,helping_verbs,need/need to
+669,try/try to,function_words,helping_verbs,try/try to
+670,wanna/want to,function_words,helping_verbs,wanna/want to
+671,was,function_words,helping_verbs,was
+672,were,function_words,helping_verbs,were
+673,will,function_words,helping_verbs,will
+674,would,function_words,helping_verbs,would
+675,and,function_words,connecting_words,and
+676,because,function_words,connecting_words,because
+677,but,function_words,connecting_words,but
+678,if,function_words,connecting_words,if
+679,so,function_words,connecting_words,so
+680,then,function_words,connecting_words,then
