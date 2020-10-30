@@ -1,7 +1,7 @@
 {
     "AWSEBDockerRunVersion": "1",
     "Image" : {
-        "Name" : "781202196452.dkr.ecr.eu-west-2.amazonaws.com/cdi-cat-api"
+        "Name" : "268692754097.dkr.ecr.us-west-2.amazonaws.com/cdi-cat-api"
     },
     "Ports": [
         {
