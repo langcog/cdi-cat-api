@@ -7,7 +7,7 @@ source("API/runCAT.R")
 
 #* @apiTitle CDI-CAT
 
-#' Return "hello world"
+#' Return "hello world" 
 #' @get /hello
 function(){
   # return(colnames(coefs_2pl))
