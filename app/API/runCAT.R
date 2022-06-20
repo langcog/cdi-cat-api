@@ -3,30 +3,39 @@ library(mirtCAT)
 library(tibble)
 library(jsonlite)
 
-load("API/eng_ws_wg_mod_2pl_nobad.Rds")
+# load combined CAT parameters (for all languages, saved in 00-combine-and-save-CAT-parms.R)
+load("API/combined_CAT_parms.Rdata")
 
-age_startits = read.csv(file="API/EN_production_start_items_by_age.csv")
+
+age_startits = list(EN = read.csv(file="API/EN_production_start_items_by_age.csv"),
+                    FR = read.csv(file="API/FR_production_start_items_by_age.csv"),
+                    SP = read.csv(file="API/SP_production_start_items_by_age.csv"))
+
+# find mod_2pl and coefs_2pl
 
 set.seed(123)
-
-
-choices <- matrix(c(0,1), nrow(coefs_2pl), 2, byrow = TRUE)
-questions <- coefs_2pl$definition
-difficulties <- coefs_2pl$d
-colnames(coefs_2pl)
-df <- data.frame(Question=questions, 
-                 Option = choices, 
-                 Type = 'radio', stringsAsFactors = FALSE)
 
 preferred_design = list(min_items = 25,
                         max_items = 50, 
                         min_SEM = 0.15)
 
-# given an age (in months), returns CAT design with appropriate start item
-initializeCAT <- function(age_mos) {
+getCATquestions <- function(language) {
+  choices <- matrix(c(0,1), nrow(irt_coefs[[language]]), 2, byrow = TRUE)
+  questions <- irt_coefs[[language]]$definition
+  #difficulties <- irt_coefs[[language]]$d
+  #colnames(irt_coefs[[language]])
+  df <- data.frame(Question=questions, 
+                   Option = choices, 
+                   Type = 'radio', stringsAsFactors = FALSE)
+  return(df)
+}
+
+# given an age (in months), and a language, returns CAT design with appropriate start item
+initializeCAT <- function(age_mos, language) {
+  df <- getCATquestions(language)
   if(age_mos<12 | age_mos>36) start_it = 'MI' # or indicate out of age range
-  start_it = subset(age_startits, age==age_mos)$index 
-  catd <- mirtCAT(df, mod_2pl, design = preferred_design, criteria = 'MI',
+  start_it = subset(age_startits[[language]], age==age_mos)$index 
+  catd <- mirtCAT(df, irt_models[[language]], design = preferred_design, criteria = 'MI',
                       method='ML', start_item = start_it, design_elements = T) 
   return(catd)
 }
@@ -55,7 +64,7 @@ updateCAT <- function(catd, item, response) { # pass in all items seen and all r
   return(catd)
 }
 
-get_CAT_summary <- function(catd) {
+get_CAT_summary <- function(catd, language) {
   its = catd$person$items_answered
   items_answered = its[which(!is.na(its))]
   responses = catd$person$responses[items_answered]
@@ -65,7 +74,7 @@ get_CAT_summary <- function(catd) {
   
   dat = tibble(index = 1:length(items_answered),
               item_inds = items_answered,
-              items = coefs_2pl$definition[items_answered],
+              items = irt_coefs[[language]]$definition[items_answered],
               responses = responses,
               thetas = catd$person$thetas_history[thetas_ind[-1]],
               thetaSE = catd$person$thetas_SE_history[thetas_ind[-1]]) # omit starting theta (0)
@@ -78,7 +87,7 @@ get_CAT_summary <- function(catd) {
 test <- function() {
   
   # initialize CAT for 24-month-old
-  catd = initializeCAT(24)
+  catd = initializeCAT(24, "EN")
   nextItem = findNextItem(catd) # the start item
   print(nextItem)
   responses = rep(c(0,1), 30)
@@ -89,7 +98,7 @@ test <- function() {
     }
   }
   
-  print(get_CAT_summary(catd))
+  print(get_CAT_summary(catd, "EN"))
 
 }
 

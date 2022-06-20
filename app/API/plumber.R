@@ -18,9 +18,9 @@ function(){
 #* @param age_mos Child's age in months (12-36)
 #* @serializer unboxedJSON
 #* @get /startItem
-get_start_item <- function(age_mos) {
+get_start_item <- function(age_mos, language) {
   if(age_mos<12 | age_mos>36) start_it = 'MI' # or indicate out of age range
-  start_it = subset(age_startits, age==age_mos)
+  start_it = subset(age_startits[[language]], age==age_mos)
   return(list(index = start_it$index[1],
               definition = start_it$definition[1]))
 }
@@ -30,12 +30,12 @@ get_start_item <- function(age_mos) {
 #* @param responses User's responses (0/1) to each item (e.g., [1,0])
 #* @serializer unboxedJSON
 #* @get /nextItem
-processCAT <- function(items, responses) {
+processCAT <- function(items, responses, language) {
   items = unlist(fromJSON(items))
   responses = unlist(fromJSON(responses))
-  
+  df <- getCATquestions(language)
   # initialize CAT
-  catd <- mirtCAT(df, mod_2pl, design = preferred_design, criteria = 'MI',
+  catd <- mirtCAT(df, irt_models[[language]], design = preferred_design, criteria = 'MI',
                   method='ML', start_item = items[1], design_elements = T) 
   
   for(i in 1:length(items)) {
@@ -47,7 +47,7 @@ processCAT <- function(items, responses) {
   print(catd$person$thetas_history)
   nextItem = findNextItem(catd)
   return(list(index=nextItem, 
-              definition=questions[nextItem], 
+              definition=irt_coefs[[language]]$definition[nextItem], 
               curTheta=catd$person$thetas[1]))
 }
 
@@ -56,50 +56,50 @@ processCAT <- function(items, responses) {
 #* @param itemID Given numeric ID (1-679) returns the item definition (e.g., )
 #* @serializer unboxedJSON
 #* @get /itemDefinition
-get_item_definition <- function(itemID) {
+get_item_definition <- function(itemID, language) {
   itemID = as.numeric(itemID)
-  if(itemID>length(questions) | itemID<1)
+  if(itemID>length(irt_coefs[[language]]$definition) | itemID<1)
     return(paste0("Error: itemID out of range: ",itemID))
-  return(questions[itemID])
+  return(irt_coefs[[language]]$definition[itemID])
 }
 
 #* Get item definition
 #* @get /itemDefinitions
-get_item_definitions <- function() {
-  return(questions)
+get_item_definitions <- function(language) {
+  return(irt_coefs[[language]]$definition)
 }
 
 #* Get easiest word
 #* @param items Given list of numeric ID (1-679) returns the id with the lowest difficulty
 #* @serializer unboxedJSON
 #* @get /easiestWord
-get_easiest_word <- function(items) {
+get_easiest_word <- function(items, language) {
   items = unlist(fromJSON(items))
   diffs <- length(items)
   for(i in 1:length(items)) {
     itemID = items[i]
-    if(itemID>length(questions) | itemID<1)
+    if(itemID>length(irt_coefs[[language]]$definition) | itemID<1)
       return(paste0("Error: itemID out of range: ",itemID))
-    diffs[i] = difficulties[itemID]
+    diffs[i] = irt_coefs[[language]]$d[itemID]
   }
   itemID = index=items[which.min(diffs)]
-  return(list(index=itemID, definition=questions[itemID]))
+  return(list(index=itemID, definition=irt_coefs[[language]]$definition[itemID]))
 }
 
 #* Get hardest word
 #* @param items Given list of numeric ID (1-679) returns the id with the highest difficulty
 #* @serializer unboxedJSON
 #* @get /hardestWord
-get_hardest_word <- function(items) {
+get_hardest_word <- function(items, language) {
   items = unlist(fromJSON(items))
   diffs <- length(items)
   for(i in 1:length(items)) {
     itemID = items[i]
-    if(itemID>length(questions) | itemID<1)
+    if(itemID>length(irt_coefs[[language]]$definition) | itemID<1)
       return(paste0("Error: itemID out of range: ",itemID))
-    diffs[i] = difficulties[itemID]
+    diffs[i] = irt_coefs[[language]]$d[itemID]
   }
   itemID = index=items[which.max(diffs)]
-  return(list(index=itemID, definition=questions[itemID]))
+  return(list(index=itemID, definition=irt_coefs[[language]]$definition[itemID]))
 }
 
