@@ -2,6 +2,7 @@
 # Plumber API for running a CAT-based CDI. 
 # You can run the API by clicking the 'Run API' button above.
 # George Kachergis  June 19, 2020
+# updated June 19, 2022 to handle multiple languages (now FR, SP, and EN)
 
 source("API/runCAT.R")
 

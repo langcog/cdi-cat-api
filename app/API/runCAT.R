@@ -84,10 +84,10 @@ get_CAT_summary <- function(catd, language) {
 
 # test sequence
 # input response (0="not produces" / 1="produces"), update theta, get new item
-test <- function() {
+test <- function(age=24, language="EN") {
   
   # initialize CAT for 24-month-old
-  catd = initializeCAT(24, "EN")
+  catd = initializeCAT(age, language)
   nextItem = findNextItem(catd) # the start item
   print(nextItem)
   responses = rep(c(0,1), 30)
@@ -98,10 +98,12 @@ test <- function() {
     }
   }
   
-  print(get_CAT_summary(catd, "EN"))
+  print(get_CAT_summary(catd, language))
 
 }
 
-# test()
+# test(24, "EN")
+# test(12, "SP")
+# test(18, "FR")
 
 
