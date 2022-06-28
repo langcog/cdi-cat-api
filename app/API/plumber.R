@@ -12,7 +12,7 @@ source("API/runCAT.R")
 #' @get /hello
 function(){
   # return(colnames(coefs_2pl))
-  "Hello from CDI-CAT API!"
+  "Hello from CDI-CAT API - multi lingual version!"
 }
 
 #* Get start item index and definition
