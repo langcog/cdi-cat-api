@@ -25,7 +25,7 @@ new_english_defs <- function() {
 # replace old definitions (coefs_2pl$definition) with defs$dismbiguation where it is not empty
 new_french_defs <- function() {
   load("app/API/fr_ws_wg_mod_2pl_nobad.Rds")
-  defs <- read.csv("app/API/FR_production_2PL_params_slopeint_disambig.csv")
+  defs <- read.csv("app/API/FR_production_2PL_params_slopeint_disambig_spaces.csv")
   # same order?
   sum(defs$definition != coefs_2pl$definition) # 0 mismatches
   disambig_inds = which(defs$disambiguation!="")
@@ -35,5 +35,5 @@ new_french_defs <- function() {
   #setdiff(defs$disambiguation, coefs_2pl$definition) # all changed
   
   save(mod_2pl, coefs_2pl, file="app/API/fr_ws_wg_mod_2pl_nobad.Rds") 
-  # ran once Sep 10, 2022
+  # ran once Sep 26, 2022
 }
