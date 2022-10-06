@@ -1,0 +1,17 @@
+version: '3.7'
+
+services:
+    api:
+        build: ./app
+        ports:
+            - 8000:8000
+    nginx:
+        build: ./nginx
+        image: nginx
+        ports:
+            - 80:80
+            - 443:443
+        restart: always
+        volumes:
+            - "./nginx/apps:/etc/nginx/conf.d/sites-enabled"
+            - "./nginx/letsencrypt:/etc/letsencrypt/"

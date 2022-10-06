@@ -1,0 +1,20 @@
+branch-defaults:
+  master:
+    environment: null
+    group_suffix: null
+environment-defaults:
+  cdicatapi-dev:
+    branch: null
+    repository: null
+global:
+  application_name: CDI-CAT-API
+  default_ec2_keyname: web-cdi_011017
+  default_platform: Docker
+  default_region: us-west-2
+  include_git_submodules: true
+  instance_profile: null
+  platform_name: null
+  platform_version: null
+  profile: web-cdi
+  sc: git
+  workspace_type: Application

@@ -1,0 +1,11 @@
+{
+    "AWSEBDockerRunVersion": "1",
+    "Image" : {
+        "Name" : "268692754097.dkr.ecr.us-west-2.amazonaws.com/cat-cdi-api-henry"
+    },
+    "Ports": [
+        {
+            "ContainerPort": "8000"
+        }
+    ]
+}

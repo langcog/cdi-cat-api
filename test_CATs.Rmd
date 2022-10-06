@@ -1,0 +1,137 @@
+---
+title: "Testing the CATs"
+author: "George"
+date: "7/12/2022"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+require(tidyverse)
+require(mirtCAT)
+
+preferred_design = list(min_items = 25,
+                        max_items = 50, 
+                        min_SEM = 0.15) 
+
+set.seed(123) 
+# Note: despite doing this, generate_pattern creates random response patterns each time
+```
+
+## English Production 
+
+```{r english, echo=F}
+load("app/API/eng_ws_wg_mod_2pl_nobad.Rds")
+
+pattern0 <- generate_pattern(mod_2pl, Theta = 0) # sum(pattern0) = 161
+pattern1 <- generate_pattern(mod_2pl, Theta = 1) # sum(pattern1) = 456
+
+choices <- matrix(c(0,1), nrow(coefs_2pl), 2, byrow = TRUE)
+questions <- coefs_2pl$definition
+df <- data.frame(Question=questions, 
+                 Option = choices, 
+                 Type = 'radio', stringsAsFactors = FALSE)
+
+# start_item = 'MI',
+# index 35 = ball (start item for 13-17 mos)
+res0 <- mirtCAT(df, mod_2pl, local_pattern=pattern0, criteria = 'MI', start_item = 35, method = 'ML', 
+               design = preferred_design) 
+
+# index 326 = leg (25-month-old)
+res1 <- mirtCAT(df, mod_2pl, local_pattern=pattern1, criteria = 'MI', start_item = 326, method = 'ML', 
+               design = preferred_design) 
+
+seq0 = tibble(item = coefs_2pl[res0$items_answered,]$definition,
+         response = res0$scored_responses[res0$items_answered],
+         theta = res0$thetas_history[-1])
+
+seq1 = tibble(item = coefs_2pl[res1$items_answered,]$definition,
+         response = res1$scored_responses[res1$items_answered],
+         theta = res1$thetas_history[-1])
+
+#write.csv(seq0, file="test_sequences/en_CAT_test_theta0_ball.csv", row.names = F) # Theta_1 = .09 SE=.099 (29 items)
+#write.csv(seq1, file="test_sequences/en_CAT_test_theta1_leg.csv", row.names = F) # Theta_1 = .84 SE=.094 (25 items)
+```
+
+We show example CATs for two simulated participants, one with ability (theta) = 0, and one with theta = 1. The CAT asks a minimum of 25 items, terminates when the SEM=0.15, or when 50 items is reached.
+The theta=0 participant (left) answered `r length(res0$items_answered)` questions, and the theta=1 participant (right) answered `r length(res1$items_answered)`. 
+The final estimated theta for the theta=0 participant was `r round(as.vector(res0$thetas),3)`, and for the theta=1 participant was `r round(as.vector(res1$thetas),3)`. 
+
+## Spanish Production
+
+
+```{r spanish, echo=FALSE}
+# load spanish model
+load("app/API/sp_ws_wg_mod_2pl_nobad.Rds")
+
+# generate response patterns
+pattern0 <- generate_pattern(mod_2pl, Theta = 0)
+pattern1 <- generate_pattern(mod_2pl, Theta = 1)
+
+choices <- matrix(c(0,1), nrow(coefs_2pl), 2, byrow = TRUE)
+questions <- coefs_2pl$definition
+df <- data.frame(Question=questions, 
+                 Option = choices, 
+                 Type = 'radio', stringsAsFactors = FALSE)
+
+# 'agua' start item (ages 12-17)
+res0 <- mirtCAT(df, mod_2pl, local_pattern=pattern0, criteria = 'MI', start_item = 21, method = 'ML', 
+               design = preferred_design) 
+# 'cama' start item (ages 22-24)
+res1 <- mirtCAT(df, mod_2pl, local_pattern=pattern1, criteria = 'MI', start_item = 125, method = 'ML', 
+               design = preferred_design) 
+
+
+seq0 = tibble(item = coefs_2pl[res0$items_answered,]$definition,
+         response = res0$scored_responses[res0$items_answered],
+         theta = res0$thetas_history[-1])
+
+seq1 = tibble(item = coefs_2pl[res1$items_answered,]$definition,
+         response = res1$scored_responses[res1$items_answered],
+         theta = res1$thetas_history[-1])
+
+#write.csv(seq0, file="test_sequences/sp_CAT_test_theta0_agua.csv", row.names = F) # Theta_1 = -.19 SE=.108 (25 items)
+#write.csv(seq1, file="test_sequences/sp_CAT_test_theta1_cama.csv", row.names = F) # Theta_1 = .98 SE=.11 (25 items)
+```
+
+We show example CATs for two simulated participants, one with ability (theta) = 0, and one with theta = 1. The CAT asks a minimum of 25 items, terminates when the SEM=0.15, or when 50 items is reached.
+The theta=0 participant (left) answered `r length(res0$items_answered)` questions, and the theta=1 participant (right) answered `r length(res1$items_answered)`. 
+The final estimated theta for the theta=0 participant was `r round(as.vector(res0$thetas),3)`, and for the theta=1 participant was `r round(as.vector(res1$thetas),3)`. 
+
+
+## French Production
+
+
+```{r french, echo=FALSE}
+# load french model
+load("app/API/fr_ws_wg_mod_2pl_nobad.Rds")
+
+# generate response patterns
+pattern0 <- generate_pattern(mod_2pl, Theta = 0)
+pattern1 <- generate_pattern(mod_2pl, Theta = 1)
+
+choices <- matrix(c(0,1), nrow(coefs_2pl), 2, byrow = TRUE)
+questions <- coefs_2pl$definition
+df <- data.frame(Question=questions, 
+                 Option = choices, 
+                 Type = 'radio', stringsAsFactors = FALSE)
+
+# index 14 = au.revoir (start item for 12-14 mos)
+res0 <- mirtCAT(df, mod_2pl, local_pattern=pattern0, criteria = 'MI', start_item = 14, method = 'ML', 
+               design = preferred_design) 
+
+# index 616 = construire (start item for 24 mos)
+res1 <- mirtCAT(df, mod_2pl, local_pattern=pattern1, criteria = 'MI', start_item = 616, method = 'ML', 
+               design = preferred_design) 
+
+seq0 = tibble(item = coefs_2pl[res0$items_answered,]$definition,
+         response = res0$scored_responses[res0$items_answered],
+         theta = res0$thetas_history[-1])
+
+seq1 = tibble(item = coefs_2pl[res1$items_answered,]$definition,
+         response = res1$scored_responses[res1$items_answered],
+         theta = res1$thetas_history[-1])
+
+#write.csv(seq0, file="test_sequences/fr_CAT_test_theta0_au.revoir.csv", row.names = F) # Theta_1 = -.19 SE=.108 (25 items)
+#write.csv(seq1, file="test_sequences/fr_CAT_test_theta1_construire.csv", row.names = F) # Theta_1 = .98 SE=.11 (25 items)
+```
