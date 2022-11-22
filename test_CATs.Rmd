@@ -132,6 +132,6 @@ seq1 = tibble(item = coefs_2pl[res1$items_answered,]$definition,
          response = res1$scored_responses[res1$items_answered],
          theta = res1$thetas_history[-1])
 
-#write.csv(seq0, file="test_sequences/fr_CAT_test_theta0_au.revoir.csv", row.names = F) # Theta_1 = -.19 SE=.108 (25 items)
-#write.csv(seq1, file="test_sequences/fr_CAT_test_theta1_construire.csv", row.names = F) # Theta_1 = .98 SE=.11 (25 items)
+write.csv(seq0, file="test_sequences/fr_CAT_test_theta0_au.revoir.csv", row.names = F) # Theta_1 = .022 (25 items)
+write.csv(seq1, file="test_sequences/fr_CAT_test_theta1_construire.csv", row.names = F) # Theta_1 = 1.11 (40 items)
 ```

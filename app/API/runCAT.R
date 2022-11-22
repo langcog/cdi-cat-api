@@ -81,6 +81,12 @@ get_CAT_summary <- function(catd, language) {
   return(dat)
 }
 
+# estimate WS vocabulary size given a theta 
+estimate_vocab_size <- function(theta, language, nsim=1000) {
+  p <- generate_pattern(irt_models[[language]], Theta=matrix(rep(theta,nsim),nsim))
+  return(list(mean=mean(rowSums(p)), 
+              sd=sd(rowSums(p))))
+}
 
 # test sequence generated given age, language, and theta (standardized language ability)
 # input response (0="not produces" / 1="produces"), update theta, get new item
@@ -141,8 +147,8 @@ test_given_sequence <- function(age=24, language="EN", resp_seq) {
 #sp2$item==sp2_test$items
 
 
-#fr1 <- read.csv("test_sequences/fr_CAT_test_theta0_au.revoir.csv")
-#fr2 <- read.csv("test_sequences/fr_CAT_test_theta1_construire.csv")
+#fr1 <- read.csv("../test_sequences/fr_CAT_test_theta0_au.revoir.csv")
+#fr2 <- read.csv("../test_sequences/fr_CAT_test_theta1_construire.csv")
 #fr1_test <- test_given_sequence(12, language="FR", fr1)
 #fr2_test <- test_given_sequence(24, language="FR", fr2)
 #fr1$item==fr1_test$items

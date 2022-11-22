@@ -42,14 +42,13 @@ processCAT <- function(items, responses, language) {
   for(i in 1:length(items)) {
     catd <- updateCAT(catd, items[i], responses[i])
   }
-  if (catd$design@stop_now == T) {
-    return("stop")
-  }
+  
   print(catd$person$thetas_history)
   nextItem = findNextItem(catd)
-  return(list(index=nextItem, 
-              definition=irt_coefs[[language]]$definition[nextItem], 
-              curTheta=catd$person$thetas[1]))
+  return(list(index = nextItem, 
+              definition = irt_coefs[[language]]$definition[nextItem], 
+              curTheta = catd$person$thetas[1],
+              stop = catd$design@stop_now))
 }
 
 
