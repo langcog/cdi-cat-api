@@ -75,15 +75,13 @@ get_item_definitions <- function(language) {
 #* @get /easiestWord
 get_easiest_word <- function(items, language) {
   items = unlist(fromJSON(items))
-  diffs <- length(items)
-  for(i in 1:length(items)) {
-    itemID = items[i]
-    if(itemID>length(irt_coefs[[language]]$definition) | itemID<1)
-      return(paste0("Error: itemID out of range: ",itemID))
-    diffs[i] = irt_coefs[[language]]$d[itemID]
-  }
-  itemID = index=items[which.min(diffs)]
-  return(list(index=itemID, definition=irt_coefs[[language]]$definition[itemID]))
+  if(min(items)<1 | max(items)>nrow(irt_coefs[[language]])) 
+    return(paste0("Error: itemID out of range: ",itemID))
+  # item difficulties (actually 'easiness', since mirt reverses it)
+  diffs <- irt_coefs[[language]]$d[items]
+  index = items[which.max(diffs)] # find easiest 
+  return(list(index = index, 
+              definition = irt_coefs[[language]]$definition[index]))
 }
 
 #* Get hardest word
@@ -92,14 +90,17 @@ get_easiest_word <- function(items, language) {
 #* @get /hardestWord
 get_hardest_word <- function(items, language) {
   items = unlist(fromJSON(items))
-  diffs <- length(items)
-  for(i in 1:length(items)) {
-    itemID = items[i]
-    if(itemID>length(irt_coefs[[language]]$definition) | itemID<1)
-      return(paste0("Error: itemID out of range: ",itemID))
-    diffs[i] = irt_coefs[[language]]$d[itemID]
-  }
-  itemID = index=items[which.max(diffs)]
-  return(list(index=itemID, definition=irt_coefs[[language]]$definition[itemID]))
+  if(min(items)<1 | max(items)>nrow(irt_coefs[[language]])) 
+    return(paste0("Error: itemID out of range: ",itemID))
+  # item difficulties (actually 'easiness', since mirt reverses it)
+  diffs <- irt_coefs[[language]]$d[items]
+  index = items[which.min(diffs)] # find hardest 
+  return(list(index = index, 
+              definition = irt_coefs[[language]]$definition[index]))
 }
 
+# tests
+# get_easiest_word(1:nrow(irt_coefs[["EN"]]), "EN") # "ball"
+# get_easiest_word(1:nrow(irt_coefs[["FR"]]), "FR") # "yeux"
+# get_hardest_word(1:nrow(irt_coefs[["EN"]]), "EN") # "would"
+# get_hardest_word(1:nrow(irt_coefs[["FR"]]), "FR") # "au sommet de"
