@@ -4,12 +4,7 @@ library(tibble)
 library(jsonlite)
 
 # load combined CAT parameters (for all languages, saved in 00-combine-and-save-CAT-parms.R)
-load("API/combined_CAT_parms.Rdata")
-
-
-age_startits = list(EN = read.csv(file="API/EN_production_start_items_by_age.csv"),
-                    FR = read.csv(file="API/FR_production_start_items_by_age.csv"),
-                    SP = read.csv(file="API/SP_production_start_items_by_age.csv"))
+load("app/API/combined_CAT_parms.Rdata")
 
 # find mod_2pl and coefs_2pl
 
@@ -112,6 +107,10 @@ test <- function(age=24, language="EN", theta=1) {
 #sp12 <- test(12, "SP", theta=1)
 
 #fr18 <- test(18, "FR", theta=1)
+
+#jp18 <- test(18, "JP", theta=1)
+
+#jp24 <- test(24, "JP", theta=1)
 
 # test against a given sequence
 test_given_sequence <- function(age=24, language="EN", resp_seq) {
