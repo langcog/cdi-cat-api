@@ -4,7 +4,7 @@
 # George Kachergis  June 19, 2020
 # updated June 19, 2022 to handle multiple languages (now FR, SP, and EN)
 
-source("API/runCAT.R")
+source("runCAT.R")
 
 #* @apiTitle CDI-CAT
 

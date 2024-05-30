@@ -4,7 +4,7 @@ library(tibble)
 library(jsonlite)
 
 # load combined CAT parameters (for all languages, saved in 00-combine-and-save-CAT-parms.R)
-load("app/API/combined_CAT_parms.Rdata")
+load("combined_CAT_parms.Rdata")
 
 # find mod_2pl and coefs_2pl
 
