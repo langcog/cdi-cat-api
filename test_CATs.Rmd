@@ -116,12 +116,12 @@ df <- data.frame(Question=questions,
                  Option = choices, 
                  Type = 'radio', stringsAsFactors = FALSE)
 
-# index 14 = au.revoir (start item for 12-14 mos)
-res0 <- mirtCAT(df, mod_2pl, local_pattern=pattern0, criteria = 'MI', start_item = 14, method = 'ML', 
+# index 16 = au.revoir (start item for 12-14 mos)
+res0 <- mirtCAT(df, mod_2pl, local_pattern=pattern0, criteria = 'MI', start_item = 16, method = 'ML', 
                design = preferred_design) 
 
-# index 616 = construire (start item for 24 mos)
-res1 <- mirtCAT(df, mod_2pl, local_pattern=pattern1, criteria = 'MI', start_item = 616, method = 'ML', 
+# index 148 = couche (vêtements) (start item for 24 mos)
+res1 <- mirtCAT(df, mod_2pl, local_pattern=pattern1, criteria = 'MI', start_item = 148, method = 'ML', 
                design = preferred_design) 
 
 seq0 = tibble(item = coefs_2pl[res0$items_answered,]$definition,
@@ -132,8 +132,8 @@ seq1 = tibble(item = coefs_2pl[res1$items_answered,]$definition,
          response = res1$scored_responses[res1$items_answered],
          theta = res1$thetas_history[-1])
 
-write.csv(seq0, file="test_sequences/fr_CAT_test_theta0_au.revoir.csv", row.names = F) # Theta_1 = .022 (25 items)
-write.csv(seq1, file="test_sequences/fr_CAT_test_theta1_construire.csv", row.names = F) # Theta_1 = 1.11 (40 items)
+write.csv(seq0, file="test_sequences/fr_CAT_test_theta0_12mos.csv", row.names = F) # Theta_1 = .022 (25 items)
+write.csv(seq1, file="test_sequences/fr_CAT_test_theta1_24mos.csv", row.names = F) # Theta_1 = 1.11 (40 items)
 ```
 
 ## Japanese Production

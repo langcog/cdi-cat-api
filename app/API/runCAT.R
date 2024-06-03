@@ -5,6 +5,7 @@ library(jsonlite)
 
 # load combined CAT parameters (for all languages, saved in 00-combine-and-save-CAT-parms.R)
 load("combined_CAT_parms.Rdata")
+#load("app/API/combined_CAT_parms.Rdata") # for local testing
 
 # find mod_2pl and coefs_2pl
 
@@ -102,6 +103,7 @@ test <- function(age=24, language="EN", theta=1) {
 }
 
 
+# generate
 #en24 <- test(24, "EN", theta=1)
 
 #sp12 <- test(12, "SP", theta=1)
@@ -131,24 +133,36 @@ test_given_sequence <- function(age=24, language="EN", resp_seq) {
   print(get_CAT_summary(catd, language))
 }
 
-#en1 <- read.csv("test_sequences/en_CAT_test_theta0_ball.csv") # 14
-#en2 <- read.csv("test_sequences/en_CAT_test_theta1_leg.csv") # 25
-#en1_test <- test_given_sequence(14, language="EN", en1)
-#en2_test <- test_given_sequence(25, language="EN", en2)
-#en1$item==en1_test$items
-#en2$item==en2_test$items
+# English
+en1 <- read.csv("test_sequences/en_CAT_test_theta0_ball.csv") # 14
+en2 <- read.csv("test_sequences/en_CAT_test_theta1_leg.csv") # 25
+en1_test <- test_given_sequence(age=14, language="EN", en1)
+testthat::expect_identical(en1$item, en1_test$items) 
+en2_test <- test_given_sequence(age=25, language="EN", en2)
+testthat::expect_identical(en2$item, en2_test$items) 
 
-#sp1 <- read.csv("test_sequences/sp_CAT_test_theta0_agua.csv") # 12
-#sp2 <- read.csv("test_sequences/sp_CAT_test_theta1_cama.csv") # 22
-#sp1_test <- test_given_sequence(12, language="SP", sp1)
-#sp2_test <- test_given_sequence(22, language="SP", sp2)
-#sp1$item==sp1_test$items
-#sp2$item==sp2_test$items
+# Spanish
+sp1 <- read.csv("test_sequences/sp_CAT_test_theta0_agua.csv") # 12
+sp2 <- read.csv("test_sequences/sp_CAT_test_theta1_cama.csv") # 22
+sp1_test <- test_given_sequence(12, language="SP", sp1)
+testthat::expect_identical(sp1$item, sp1_test$items) 
+sp2_test <- test_given_sequence(22, language="SP", sp2)
+testthat::expect_identical(sp2$item, sp2_test$items) 
 
+# French
+fr1 <- read.csv("test_sequences/fr_CAT_test_theta0_12mos.csv")
+fr2 <- read.csv("test_sequences/fr_CAT_test_theta1_24mos.csv")
+fr1_test <- test_given_sequence(12, language="FR", fr1)
+testthat::expect_identical(fr1$item, fr1_test$items) 
+fr2_test <- test_given_sequence(24, language="FR", fr2)
+testthat::expect_identical(fr2$item, fr2_test$items) 
 
-#fr1 <- read.csv("../test_sequences/fr_CAT_test_theta0_au.revoir.csv")
-#fr2 <- read.csv("../test_sequences/fr_CAT_test_theta1_construire.csv")
-#fr1_test <- test_given_sequence(12, language="FR", fr1)
-#fr2_test <- test_given_sequence(24, language="FR", fr2)
-#fr1$item==fr1_test$items
-#fr2$item==fr2_test$items
+# Japanese
+jp1 <- read.csv("test_sequences/jp_CAT_test_theta0_12mos.csv") %>%
+  rename(item_id = item) %>% left_join(irt_coefs$JP %>% select(item_id, definition))
+jp2 <- read.csv("test_sequences/jp_CAT_test_theta1_24mos.csv") %>%
+  rename(item_id = item) %>% left_join(irt_coefs$JP %>% select(item_id, definition))
+jp1_test <- test_given_sequence(12, language="JP", jp1)
+testthat::expect_identical(jp1$definition, jp1_test$items) 
+jp2_test <- test_given_sequence(24, language="JP", jp2)
+testthat::expect_identical(jp2$definition, jp2_test$items) 
