@@ -17,7 +17,7 @@ load("API/sp_ws_wg_mod_2pl_nobad.Rds")
 irt_models$SP = mod_2pl
 irt_coefs$SP = coefs_2pl
 # Dutch production
-model_list <- readRDS("API/nl_ws_wg_mod_2PL.Rds")
+model_list <- readRDS("API/nl_ws_wg_mod_2pl.Rds")
 irt_models$NL = model_list$mod_2pl
 irt_coefs$NL = model_list$coefs_2pl
 # Japanese production
