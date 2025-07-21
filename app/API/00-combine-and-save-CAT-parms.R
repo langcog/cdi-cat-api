@@ -21,8 +21,8 @@ model_list <- readRDS("API/nl_ws_wg_mod_2pl.Rds")
 irt_models$NL = model_list$mod_2pl
 irt_coefs$NL = model_list$coefs_2pl
 # Japanese production
-load("jp_ws_wg_mod_2pl_prior.Rds")
-jp_pars <- read_csv("JP_production_2PL_params_slopeint.csv")
+load("API/jp_ws_wg_mod_2pl_prior.Rds")
+jp_pars <- read_csv("API/JP_production_2PL_params_slopeint.csv")
 irt_models$JP = mod_2pl
 irt_coefs$JP = coefs_2pl %>% # merge in actual definition
   rename(item_id = definition) %>% 
