@@ -6,7 +6,7 @@ library(dplyr)
 
 # load combined CAT parameters (for all languages, saved in 00-combine-and-save-CAT-parms.R)
 load("combined_CAT_parms.Rdata")
-#load("app/api/combined_CAT_parms.Rdata") # for local testing
+#load("app/API/combined_CAT_parms.Rdata") # for local testing
 
 # find mod_2pl and coefs_2pl
 
