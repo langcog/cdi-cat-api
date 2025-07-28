@@ -115,11 +115,7 @@ jp18 <- test(18, "JP", theta=1)
 
 jp24 <- test(24, "JP", theta=1)
 
-<<<<<<< HEAD
 nl13 <- test(13, "NL", theta=1)
-=======
-nl12 <- test(12, "NL", theta=1)
->>>>>>> c6da003dcc0d83b9322f1c8990117fc7e280f854
 
 # # test against a given sequence
 test_given_sequence <- function(age=24, language="EN", resp_seq) {
@@ -170,7 +166,6 @@ jp1 <- read.csv("test_sequences/jp_CAT_test_theta0_12mos.csv") %>%
 jp2 <- read.csv("test_sequences/jp_CAT_test_theta1_24mos.csv") %>%
   rename(item_id = item) %>% left_join(irt_coefs$JP %>% select(item_id, definition))
 jp1_test <- test_given_sequence(12, language="JP", jp1)
-<<<<<<< HEAD
 testthat::expect_identical(jp1$definition, jp1_test$items)
 jp2_test <- test_given_sequence(24, language="JP", jp2)
 testthat::expect_identical(jp2$definition, jp2_test$items)
@@ -182,18 +177,3 @@ nl1_test <- test_given_sequence(13, language="NL", nl1)
 testthat::expect_identical(nl1$item, nl1_test$items)
 nl2_test <- test_given_sequence(28, language="NL", nl2)
 testthat::expect_identical(nl2$item, nl2_test$items)
-=======
-testthat::expect_identical(jp1$definition, jp1_test$items) 
-jp2_test <- test_given_sequence(24, language="JP", jp2)
-testthat::expect_identical(jp2$definition, jp2_test$items) 
-
-# Dutch
-nl1 <- read.csv("test_sequences/nl_CAT_test_theta0.csv")
-#  rename(item_id = item) %>% left_join(irt_coefs$NL %>% select(item_id, definition))
-nl2 <- read.csv("test_sequences/nl_CAT_test_theta1.csv")
-#  rename(item_id = item) %>% left_join(irt_coefs$NL %>% select(item_id, definition))
-# nl1_test <- test_given_sequence(12, language="NL", nl1)
-# testthat::expect_identical(nl1$definition, nl1_test$items) 
-# nl2_test <- test_given_sequence(28, language="NL", nl2)
-# testthat::expect_identical(nl2$definition, nl2_test$items) 
->>>>>>> c6da003dcc0d83b9322f1c8990117fc7e280f854
