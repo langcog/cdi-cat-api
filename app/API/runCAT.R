@@ -87,54 +87,54 @@ estimate_vocab_size <- function(theta, language, nsim=1000) {
  
 # test sequence generated given age, language, and theta (standardized language ability)
 # input response (0="not produces" / 1="produces"), update theta, get new item
-test <- function(age=24, language="EN", theta=1) {
-  # get response full CDI response pattern for given theta
-  responses <- generate_pattern(irt_models[[language]], Theta = theta)
-  # initialize CAT for given age and language
-  catd = initializeCAT(age, language)
-  nextItem = findNextItem(catd) # the start item
-  print(nextItem)
-  #responses = rep(c(0,1), 30) # generated alternating responses
-  while(!catd$design@stop_now) {
-    catd <- updateCAT(catd, nextItem, responses[nextItem])
-    nextItem = findNextItem(catd)
-  }
-  
-  print(get_CAT_summary(catd, language))
-}
-
-
-# # generate
-en24 <- test(24, "EN", theta=1)
-
-sp12 <- test(12, "SP", theta=1)
-
-fr18 <- test(18, "FR", theta=1)
-
-jp18 <- test(18, "JP", theta=1)
-
-jp24 <- test(24, "JP", theta=1)
-
-nl13 <- test(13, "NL", theta=1)
-
+# test <- function(age=24, language="EN", theta=1) {
+#   # get response full CDI response pattern for given theta
+#   responses <- generate_pattern(irt_models[[language]], Theta = theta)
+#   # initialize CAT for given age and language
+#   catd = initializeCAT(age, language)
+#   nextItem = findNextItem(catd) # the start item
+#   print(nextItem)
+#   #responses = rep(c(0,1), 30) # generated alternating responses
+#   while(!catd$design@stop_now) {
+#     catd <- updateCAT(catd, nextItem, responses[nextItem])
+#     nextItem = findNextItem(catd)
+#   }
+#   
+#   print(get_CAT_summary(catd, language))
+# }
+# 
+# 
+# # # generate
+# en24 <- test(24, "EN", theta=1)
+# 
+# sp12 <- test(12, "SP", theta=1)
+# 
+# fr18 <- test(18, "FR", theta=1)
+# 
+# jp18 <- test(18, "JP", theta=1)
+# 
+# jp24 <- test(24, "JP", theta=1)
+# 
+# nl13 <- test(13, "NL", theta=1)
+# 
 # # test against a given sequence
-test_given_sequence <- function(age=24, language="EN", resp_seq) {
-  # initialize CAT for given age and language
-  catd = initializeCAT(age, language)
-  nextItem = findNextItem(catd) # the start item
-  print(nextItem)
-  #responses = rep(c(0,1), 30) # generated alternating responses
-  for(i in 1:nrow(resp_seq)) {
-    if(!catd$design@stop_now) {
-      # compare given and found items:
-      given_item_num = which(irt_coefs[[language]]$definition==resp_seq$item[i])
-      catd <- updateCAT(catd, nextItem, resp_seq[i,]$response)
-      nextItem = findNextItem(catd)
-    }
-  } 
-  
-  print(get_CAT_summary(catd, language))
-}
+# test_given_sequence <- function(age=24, language="EN", resp_seq) {
+#   # initialize CAT for given age and language
+#   catd = initializeCAT(age, language)
+#   nextItem = findNextItem(catd) # the start item
+#   print(nextItem)
+#   #responses = rep(c(0,1), 30) # generated alternating responses
+#   for(i in 1:nrow(resp_seq)) {
+#     if(!catd$design@stop_now) {
+#       # compare given and found items:
+#       given_item_num = which(irt_coefs[[language]]$definition==resp_seq$item[i])
+#       catd <- updateCAT(catd, nextItem, resp_seq[i,]$response)
+#       nextItem = findNextItem(catd)
+#     }
+#   } 
+#   
+#   print(get_CAT_summary(catd, language))
+# }
 # 
 # English
 # en1 <- read.csv("test_sequences/en_CAT_test_theta0_ball.csv") # 14
