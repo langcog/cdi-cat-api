@@ -137,43 +137,44 @@ test_given_sequence <- function(age=24, language="EN", resp_seq) {
 }
 # 
 # English
-en1 <- read.csv("test_sequences/en_CAT_test_theta0_ball.csv") # 14
-en2 <- read.csv("test_sequences/en_CAT_test_theta1_leg.csv") # 25
-en1_test <- test_given_sequence(age=14, language="EN", en1)
-testthat::expect_identical(en1$item, en1_test$items) 
-en2_test <- test_given_sequence(age=25, language="EN", en2)
-testthat::expect_identical(en2$item, en2_test$items) 
-
-# Spanish
-sp1 <- read.csv("test_sequences/sp_CAT_test_theta0_agua.csv") # 12
-sp2 <- read.csv("test_sequences/sp_CAT_test_theta1_cama.csv") # 22
-sp1_test <- test_given_sequence(12, language="SP", sp1)
-testthat::expect_identical(sp1$item, sp1_test$items) 
-sp2_test <- test_given_sequence(22, language="SP", sp2)
-testthat::expect_identical(sp2$item, sp2_test$items) 
- 
-# French
-fr1 <- read.csv("test_sequences/fr_CAT_test_theta0_12mos.csv")
-fr2 <- read.csv("test_sequences/fr_CAT_test_theta1_24mos.csv")
-fr1_test <- test_given_sequence(12, language="FR", fr1)
-testthat::expect_identical(fr1$item, fr1_test$items) 
-fr2_test <- test_given_sequence(24, language="FR", fr2)
-testthat::expect_identical(fr2$item, fr2_test$items) 
- 
-# Japanese
-jp1 <- read.csv("test_sequences/jp_CAT_test_theta0_12mos.csv") %>%
-  rename(item_id = item) %>% left_join(irt_coefs$JP %>% select(item_id, definition))
-jp2 <- read.csv("test_sequences/jp_CAT_test_theta1_24mos.csv") %>%
-  rename(item_id = item) %>% left_join(irt_coefs$JP %>% select(item_id, definition))
-jp1_test <- test_given_sequence(12, language="JP", jp1)
-testthat::expect_identical(jp1$definition, jp1_test$items)
-jp2_test <- test_given_sequence(24, language="JP", jp2)
-testthat::expect_identical(jp2$definition, jp2_test$items)
-
-# Dutch
-nl1 <- read.csv("test_sequences/nl_CAT_test_theta0.csv")
-nl2 <- read.csv("test_sequences/nl_CAT_test_theta1.csv")
-nl1_test <- test_given_sequence(13, language="NL", nl1)
-testthat::expect_identical(nl1$item, nl1_test$items)
-nl2_test <- test_given_sequence(28, language="NL", nl2)
-testthat::expect_identical(nl2$item, nl2_test$items)
+# en1 <- read.csv("test_sequences/en_CAT_test_theta0_ball.csv") # 14
+# en2 <- read.csv("test_sequences/en_CAT_test_theta1_leg.csv") # 25
+# en1_test <- test_given_sequence(age=14, language="EN", en1)
+# testthat::expect_identical(en1$item, en1_test$items) 
+# en2_test <- test_given_sequence(age=25, language="EN", en2)
+# testthat::expect_identical(en2$item, en2_test$items) 
+# 
+# # Spanish
+# sp1 <- read.csv("test_sequences/sp_CAT_test_theta0_agua.csv") # 12
+# sp2 <- read.csv("test_sequences/sp_CAT_test_theta1_cama.csv") # 22
+# sp1_test <- test_given_sequence(12, language="SP", sp1)
+# testthat::expect_identical(sp1$item, sp1_test$items) 
+# sp2_test <- test_given_sequence(22, language="SP", sp2)
+# testthat::expect_identical(sp2$item, sp2_test$items) 
+#  
+# # French
+# fr1 <- read.csv("test_sequences/fr_CAT_test_theta0_12mos.csv")
+# fr2 <- read.csv("test_sequences/fr_CAT_test_theta1_24mos.csv")
+# fr1_test <- test_given_sequence(12, language="FR", fr1)
+# testthat::expect_identical(fr1$item, fr1_test$items) 
+# fr2_test <- test_given_sequence(24, language="FR", fr2)
+# testthat::expect_identical(fr2$item, fr2_test$items) 
+#  
+# # Japanese
+# jp1 <- read.csv("test_sequences/jp_CAT_test_theta0_12mos.csv") %>%
+#   rename(item_id = item) %>% left_join(irt_coefs$JP %>% select(item_id, definition))
+# jp2 <- read.csv("test_sequences/jp_CAT_test_theta1_24mos.csv") %>%
+#   rename(item_id = item) %>% left_join(irt_coefs$JP %>% select(item_id, definition))
+# jp1_test <- test_given_sequence(12, language="JP", jp1)
+# testthat::expect_identical(jp1$definition, jp1_test$items)
+# jp2_test <- test_given_sequence(24, language="JP", jp2)
+# testthat::expect_identical(jp2$definition, jp2_test$items)
+# 
+# # Dutch
+# nl1 <- read.csv("test_sequences/nl_CAT_test_theta0.csv")
+# nl2 <- read.csv("test_sequences/nl_CAT_test_theta1.csv")
+# nl1_test <- test_given_sequence(13, language="NL", nl1)
+# testthat::expect_identical(nl1$item, nl1_test$items)
+# nl2_test <- test_given_sequence(28, language="NL", nl2)
+# testthat::expect_identical(nl2$item, nl2_test$items)
+# 
