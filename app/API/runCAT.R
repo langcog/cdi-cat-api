@@ -2,6 +2,7 @@
 library(mirtCAT)
 library(tibble)
 library(jsonlite)
+library(dplyr)
 
 # load combined CAT parameters (for all languages, saved in 00-combine-and-save-CAT-parms.R)
 load("combined_CAT_parms.Rdata")
@@ -83,9 +84,9 @@ estimate_vocab_size <- function(theta, language, nsim=1000) {
   return(list(mean=mean(rowSums(p)), 
               sd=sd(rowSums(p))))
 }
-# 
-# # test sequence generated given age, language, and theta (standardized language ability)
-# # input response (0="not produces" / 1="produces"), update theta, get new item
+ 
+# test sequence generated given age, language, and theta (standardized language ability)
+# input response (0="not produces" / 1="produces"), update theta, get new item
 # test <- function(age=24, language="EN", theta=1) {
 #   # get response full CDI response pattern for given theta
 #   responses <- generate_pattern(irt_models[[language]], Theta = theta)
@@ -103,16 +104,18 @@ estimate_vocab_size <- function(theta, language, nsim=1000) {
 # }
 # 
 # 
-# # generate
-# #en24 <- test(24, "EN", theta=1)
+# # # generate
+# en24 <- test(24, "EN", theta=1)
 # 
-# #sp12 <- test(12, "SP", theta=1)
+# sp12 <- test(12, "SP", theta=1)
 # 
-# #fr18 <- test(18, "FR", theta=1)
+# fr18 <- test(18, "FR", theta=1)
 # 
-# #jp18 <- test(18, "JP", theta=1)
+# jp18 <- test(18, "JP", theta=1)
 # 
-# #jp24 <- test(24, "JP", theta=1)
+# jp24 <- test(24, "JP", theta=1)
+# 
+# nl13 <- test(13, "NL", theta=1)
 # 
 # # test against a given sequence
 # test_given_sequence <- function(age=24, language="EN", resp_seq) {
@@ -133,7 +136,7 @@ estimate_vocab_size <- function(theta, language, nsim=1000) {
 #   print(get_CAT_summary(catd, language))
 # }
 # 
-# # English
+# English
 # en1 <- read.csv("test_sequences/en_CAT_test_theta0_ball.csv") # 14
 # en2 <- read.csv("test_sequences/en_CAT_test_theta1_leg.csv") # 25
 # en1_test <- test_given_sequence(age=14, language="EN", en1)
@@ -148,7 +151,7 @@ estimate_vocab_size <- function(theta, language, nsim=1000) {
 # testthat::expect_identical(sp1$item, sp1_test$items) 
 # sp2_test <- test_given_sequence(22, language="SP", sp2)
 # testthat::expect_identical(sp2$item, sp2_test$items) 
-# 
+#  
 # # French
 # fr1 <- read.csv("test_sequences/fr_CAT_test_theta0_12mos.csv")
 # fr2 <- read.csv("test_sequences/fr_CAT_test_theta1_24mos.csv")
@@ -156,13 +159,22 @@ estimate_vocab_size <- function(theta, language, nsim=1000) {
 # testthat::expect_identical(fr1$item, fr1_test$items) 
 # fr2_test <- test_given_sequence(24, language="FR", fr2)
 # testthat::expect_identical(fr2$item, fr2_test$items) 
-# 
+#  
 # # Japanese
 # jp1 <- read.csv("test_sequences/jp_CAT_test_theta0_12mos.csv") %>%
 #   rename(item_id = item) %>% left_join(irt_coefs$JP %>% select(item_id, definition))
 # jp2 <- read.csv("test_sequences/jp_CAT_test_theta1_24mos.csv") %>%
 #   rename(item_id = item) %>% left_join(irt_coefs$JP %>% select(item_id, definition))
 # jp1_test <- test_given_sequence(12, language="JP", jp1)
-# testthat::expect_identical(jp1$definition, jp1_test$items) 
+# testthat::expect_identical(jp1$definition, jp1_test$items)
 # jp2_test <- test_given_sequence(24, language="JP", jp2)
-# testthat::expect_identical(jp2$definition, jp2_test$items) 
+# testthat::expect_identical(jp2$definition, jp2_test$items)
+# 
+# # Dutch
+# nl1 <- read.csv("test_sequences/nl_CAT_test_theta0.csv")
+# nl2 <- read.csv("test_sequences/nl_CAT_test_theta1.csv")
+# nl1_test <- test_given_sequence(13, language="NL", nl1)
+# testthat::expect_identical(nl1$item, nl1_test$items)
+# nl2_test <- test_given_sequence(28, language="NL", nl2)
+# testthat::expect_identical(nl2$item, nl2_test$items)
+# 

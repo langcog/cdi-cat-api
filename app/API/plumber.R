@@ -99,7 +99,7 @@ get_hardest_word <- function(items, language) {
               definition = irt_coefs[[language]]$definition[index]))
 }
 
-# tests
+#* tests
 # get_easiest_word(1:nrow(irt_coefs[["EN"]]), "EN") # "ball"
 # get_easiest_word(1:nrow(irt_coefs[["FR"]]), "FR") # "yeux"
 # get_hardest_word(1:nrow(irt_coefs[["EN"]]), "EN") # "would"
