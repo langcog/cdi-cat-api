@@ -1,6 +1,6 @@
 require(tidyverse)
 require(mirt)
-
+# setwd("app")
 # load IRT parameters and models for multiple languages
 irt_models = list()
 irt_coefs = list()
@@ -14,18 +14,25 @@ irt_models$FR = mod_2pl
 irt_coefs$FR = coefs_2pl
 # Spanish production
 load("API/sp_ws_wg_mod_2pl_nobad.Rds")
-coefs_2pl[which(coefs_2pl$definition=="bolsa (household)"),]$definition = "bolsa"
-# ToDo: remove/translate English disambiguations from the others:
-# té (food) and te (pronouns) -> comida and pronombres
-# triciclo (toys) and triciclo (vehicles) ->
-# rápido (descriptive) and rápido (quantifiers)
-# que (connection word) and qué (question_words)
-# pescado and pescado (food_drink)
-# patio (outside) and patio (places)
-# hot cakes -> (why is this English??)
-# el (propositions) and él (pronouns)
-# banco (outside) and banco (places)
-# bolsa (clothing) and bolsa (household)
+coefs_2pl[which(coefs_2pl$definition=="bolsa (household)"),]$definition = "bolsa (utensilios de la casa)"
+coefs_2pl[which(coefs_2pl$definition=="bolsa (clothing)"),]$definition = "bolsa (ropa)"
+coefs_2pl[which(coefs_2pl$definition=="té (food)"),]$definition = "té (comida)"
+coefs_2pl[which(coefs_2pl$definition=="te (pronouns)"),]$definition = "te (pronombre)"
+coefs_2pl[which(coefs_2pl$definition=="triciclo (toys)"),]$definition = "triciclo (juguete)"
+coefs_2pl[which(coefs_2pl$definition=="triciclo (vehicles)"),]$definition = "triciclo (vehículo)"
+coefs_2pl[which(coefs_2pl$definition=="rápido (descriptive)"),]$definition = "rápido (adjetivo)"
+coefs_2pl[which(coefs_2pl$definition=="rápido (quantifiers)"),]$definition = "rápido (cuantificador)"
+coefs_2pl[which(coefs_2pl$definition=="que (connection word)"),]$definition = "que (conexión)"
+coefs_2pl[which(coefs_2pl$definition=="qué (question_words)"),]$definition = "qué (pregunta)"
+coefs_2pl[which(coefs_2pl$definition=="pescado"),]$definition = "pescado (animales)"
+coefs_2pl[which(coefs_2pl$definition=="pescado (food_drink)"),]$definition = "pescado (alimentos)"
+coefs_2pl[which(coefs_2pl$definition=="patio (outside)"),]$definition = "patio (afuera)"
+coefs_2pl[which(coefs_2pl$definition=="patio (places)"),]$definition = "patio (lugares)"
+coefs_2pl[which(coefs_2pl$definition=="hot cakes"),]$definition = "hot cakes (alimentos)"
+coefs_2pl[which(coefs_2pl$definition=="el (propositions)"),]$definition = "el (preposición)"
+coefs_2pl[which(coefs_2pl$definition=="él (pronouns)"),]$definition = "él (pronombre)"
+coefs_2pl[which(coefs_2pl$definition=="banco (outside)"),]$definition = "banco (afuera)"
+coefs_2pl[which(coefs_2pl$definition=="banco (places)"),]$definition = "banco (lugares)"
 irt_models$SP = mod_2pl
 irt_coefs$SP = coefs_2pl
 # Dutch production
