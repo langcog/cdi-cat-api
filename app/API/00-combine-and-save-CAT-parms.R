@@ -14,6 +14,18 @@ irt_models$FR = mod_2pl
 irt_coefs$FR = coefs_2pl
 # Spanish production
 load("API/sp_ws_wg_mod_2pl_nobad.Rds")
+coefs_2pl[which(coefs_2pl$definition=="bolsa (household)"),]$definition = "bolsa"
+# ToDo: remove/translate English disambiguations from the others:
+# té (food) and te (pronouns) -> comida and pronombres
+# triciclo (toys) and triciclo (vehicles) ->
+# rápido (descriptive) and rápido (quantifiers)
+# que (connection word) and qué (question_words)
+# pescado and pescado (food_drink)
+# patio (outside) and patio (places)
+# hot cakes -> (why is this English??)
+# el (propositions) and él (pronouns)
+# banco (outside) and banco (places)
+# bolsa (clothing) and bolsa (household)
 irt_models$SP = mod_2pl
 irt_coefs$SP = coefs_2pl
 # Dutch production
